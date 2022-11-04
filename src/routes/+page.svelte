@@ -176,7 +176,7 @@
     <meta property="og:title" content="Acord - The Client Mod" />
     <meta property="og:description" content="Fix Discord’s sloppy jobs and breathe new life to the client." />
     <meta property="og:image" content="https://acord.app/favicon.png" />
-    <meta property="theme-color" content="#000000" />
+    <meta property="theme-color" content="#010101" />
 </svelte:head>
 
 <div class="page">
