@@ -15,10 +15,10 @@
             flex-direction: column;
             color: rgb(var(--color2-rgb));
             height: 60%;
-            padding-top: 64px;
+            margin-top: 10vh;
 
-            img {
-                height: 180px;
+            .logo {
+                height: min(25vh, 180px);
                 pointer-events: none;
             }
 
@@ -67,7 +67,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            height: 50%;
+            height: 200px;
 
             .preview {
                 pointer-events: none;
@@ -76,6 +76,7 @@
                 transform: translate(0%, -50%);
                 bottom: 0;
                 width: 90vw;
+                height: 35vh;
                 max-width: 1024px;
                 border-radius: 45px;
                 border: 4px solid rgb(var(--color2-rgb));
@@ -84,7 +85,15 @@
                 outline-style: solid;
                 outline-color: rgba(var(--color2-rgb), 0.25);
                 outline-offset: 8px;
+                object-fit: cover;
             }
+
+            @media screen and (min-height: 720px) {
+                .preview {
+                    height: 55vh;
+                }
+            }
+            
         }
     }
 
@@ -188,7 +197,7 @@
 
 <div class="page">
     <div class="top">
-        <img src="https://acord.app/api/logo.svg?fg=fafafa" alt="logo">
+        <img class="logo" src="https://acord.app/api/logo.svg?fg=fafafa" alt="logo">
         <h1 class="title">Acord</h1>
         <p class="description">
             Fix Discord’s sloppy jobs and<br>
