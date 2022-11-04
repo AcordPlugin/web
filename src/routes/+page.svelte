@@ -37,7 +37,6 @@
                 font-weight: 300;
                 color: white;
                 font-size: 12px;
-                cursor: pointer;
                 opacity: 0.5;
             }
 
