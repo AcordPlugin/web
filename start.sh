@@ -1,0 +1,1 @@
+git reset --hard && git clean -fd && git pull && npm i && npm run build && node serve-build.js
