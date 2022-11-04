@@ -13,12 +13,13 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            color: white;
+            color: rgb(var(--color2-rgb));
             height: 60%;
             padding-top: 64px;
 
             img {
                 height: 180px;
+                pointer-events: none;
             }
 
             .title {
@@ -35,16 +36,16 @@
             .download-count {
                 margin-top: 32px;
                 font-weight: 300;
-                color: white;
+                color: rgb(var(--color2-rgb));
                 font-size: 12px;
-                opacity: 0.5;
+                opacity: 0.75;
             }
 
             .download {
                 margin-top: 4px;
                 padding: 12px 48px;
-                background-color: white;
-                color: black;
+                background-color: rgb(var(--color2-rgb));
+                color: rgb(var(--color1-rgb));
                 font-weight: 900;
                 border-radius: 8px;
                 font-size: 24px;
@@ -54,8 +55,8 @@
 
             .im-not-convinced {
                 margin-top: 8px;
-                font-weight: 200;
-                color: white;
+                font-weight: 400;
+                color: rgb(var(--color2-rgb));
                 font-size: 12px;
                 cursor: pointer;
                 text-decoration: underline;
@@ -69,6 +70,7 @@
             height: 50%;
 
             .preview {
+                pointer-events: none;
                 position: absolute;
                 top: 100%;
                 transform: translate(0%, -50%);
@@ -76,7 +78,12 @@
                 width: 90vw;
                 max-width: 1024px;
                 border-radius: 45px;
-                border: 4px solid white;
+                border: 4px solid rgb(var(--color2-rgb));
+                box-shadow: 0px 0px 16px rgba(var(--color2-rgb), 1), inset 0px 0px 1px rgba(var(--color2-rgb), 1);
+                outline-width: 2px;
+                outline-style: solid;
+                outline-color: rgba(var(--color2-rgb), 0.25);
+                outline-offset: 8px;
             }
         }
     }
@@ -86,9 +93,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: white;
-        color: black;
-        box-shadow: 0px 4px 16px black;
+        background-color: rgb(var(--color2-rgb));
+        color: rgb(var(--color1-rgb));
+        box-shadow: 0px 4px 16px rgb(var(--color1-rgb));
         width: 350px;
         max-width: 90vw;
         border-radius: 32px;
@@ -142,9 +149,9 @@
                 .download {
                     margin-top: 32px;
                     padding: 6px 24px;
-                    background-color: white;
-                    color: black;
-                    border: 4px solid black;
+                    background-color: rgb(var(--color2-rgb));
+                    color: rgb(var(--color1-rgb));
+                    border: 4px solid rgb(var(--color1-rgb));
                     font-weight: 900;
                     border-radius: 8px;
                     font-size: 24px;
@@ -176,12 +183,12 @@
     <meta property="og:title" content="Acord - The Client Mod" />
     <meta property="og:description" content="Fix Discord’s sloppy jobs and breathe new life to the client." />
     <meta property="og:image" content="https://acord.app/favicon.png" />
-    <meta property="theme-color" content="#010101" />
+    <meta property="theme-color" content="#fafafa" />
 </svelte:head>
 
 <div class="page">
     <div class="top">
-        <img src="https://acord.app/api/logo.svg?fg=ffffff" alt="logo">
+        <img src="https://acord.app/api/logo.svg?fg=fafafa" alt="logo">
         <h1 class="title">Acord</h1>
         <p class="description">
             Fix Discord’s sloppy jobs and<br>

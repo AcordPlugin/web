@@ -2,7 +2,7 @@
     #nav {
         width: 100vw;
         height: 50px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(var(--color1-rgb), 0.5);
         backdrop-filter: blur(2px);
         position: absolute;
         bottom: 0px;
@@ -20,14 +20,14 @@
             gap: 8px;
 
             svg {
-                color: white;
+                color: rgb(var(--color2-rgb));
                 width: 28px;
             }
         }
 
         a {
             font-size: 18px;
-            color: white;
+            color: rgb(var(--color2-rgb));
         }
     }
 </style>
