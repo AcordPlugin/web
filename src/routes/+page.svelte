@@ -175,7 +175,6 @@
 <script>
 	import { onMount } from "svelte";
 
-
     let ohokModalVisible = false;
     let downloadCount = 2;
 
@@ -231,7 +230,7 @@
             we’re just better.
         </p>
         <a class="download" href="https://github.com/AcordPlugin/acord-installer-new/releases/tag/v0.1.0">
-            download anyway
+            Download anyway
         </a>
     </div>
 </div>
