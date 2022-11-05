@@ -249,7 +249,7 @@
         <div class="title-container">
             <h1 class="title">Acord Extensions</h1>
             <p class="description">
-                Explorer any kind of official Acord {type} here!
+                Explore any kind of official Acord {type} here!
             </p>
         </div>
         <div class="content">
