@@ -272,7 +272,7 @@
                         </div>
                     </div>
                     <div class="bottom">
-                        <a class="button button--github" href="https://github.com/AcordPlugin/plugins/tree/main/users/{item.user}/{item.slug}">
+                        <a class="button button--github" href="https://github.com/AcordPlugin/{type}/tree/main/users/{item.user}/{item.slug}">
                             Github
                         </a>
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
