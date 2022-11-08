@@ -36,6 +36,28 @@
                 }
             }
 
+            > .search-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                margin-top: 32px;
+                margin-bottom: 64px;
+                color: rgb(var(--color2-rgb));
+                padding: 0 8px;
+
+                input {
+                    max-width: 360px;
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                    color: rgba(var(--color2-rgb), 0.75);
+                    padding: 8px;
+                    border-bottom: 2px solid rgba(var(--color2-rgb), 0.95);
+                    font-size: 18px;
+                }
+            }
+
             > .content {
                 display: flex;
                 align-items: center;
@@ -85,6 +107,8 @@
                                 opacity: 0.5;
                             }
                         }
+
+                        
 
                         .description {
                             padding: 8px;
@@ -210,6 +234,18 @@
     let socketPort;
     let ws;
 
+    let searchText = "";
+
+    let results = data.extensions;
+
+    $: {
+        let sl = searchText.toLowerCase().trim();
+
+        results = sl 
+            ? data.extensions.filter(i=>(i.manifest.about.name.toLowerCase().includes(sl) || i.manifest.about.description.toLowerCase().includes(sl) || i.slug == sl || i.user.toLowerCase() == sl))
+            : data.extensions;
+    }
+
     function installExtension(url) {
         if (!ws) return;
 
@@ -252,8 +288,13 @@
                 Explore any kind of official Acord {type} here!
             </p>
         </div>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" bind:value={searchText} placeholder="Search..">
+            </div>
+        </div>
         <div class="content">
-            {#each data.extensions as item}
+            {#each results as item}
                 <div class="item" style:--bg="url('{item.manifest.about.preview}')">
                     <div class="top">
                         <div class="title-container">
