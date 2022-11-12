@@ -25,6 +25,11 @@
             }
         }
 
+        p {
+            font-size: 18px;
+            color: rgb(var(--color2-rgb));
+        }
+
         a {
             font-size: 18px;
             color: rgb(var(--color2-rgb));
@@ -37,6 +42,25 @@
     }
 </style>
 
+<script>
+	import { onMount } from "svelte";
+
+    let countData = { activeCount: 1, allTimeMaxCount: 1 };
+
+    onMount(()=>{
+        async function update() {
+            let d = (await (await fetch(`https://acord.app/api/users`)).json());
+            countData = d.data;
+        }
+        let interval = setInterval(update, 10000);
+        update();
+
+        return ()=>{
+            clearInterval(interval);
+        }
+    })
+</script>
+
 <div id="svelte-layout">
     <div id="nav">
         <div class="left">
@@ -45,6 +69,7 @@
             <a href="/extensions?type=themes" data-sveltekit-prefetch>Themes</a>
         </div>
         <div class="right">
+            <p>{countData.activeCount} | {countData.allTimeMaxCount}</p>
             <a href="https://discord.gg/acord">
                 <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
