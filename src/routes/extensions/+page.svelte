@@ -224,7 +224,11 @@
 	import { findPort } from '$lib/utils.js';
 	import { onMount } from 'svelte';
     
-    let type = $page.url.searchParams.get("type") == "themes" ? "themes" : "plugins";
+    let type;
+
+    $: {
+        type = $page.url.searchParams.get("type") == "themes" ? "themes" : "plugins";
+    }
 
     /** @type {import('./$types').PageData} */
     export let data;

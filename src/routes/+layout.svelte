@@ -5,7 +5,7 @@
         background-color: rgba(var(--color1-rgb), 0.5);
         backdrop-filter: blur(2px);
         position: absolute;
-        bottom: 0px;
+        top: 0px;
 
         display: flex;
         align-items: center;
@@ -30,12 +30,17 @@
             color: rgb(var(--color2-rgb));
         }
 
+        .small {
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
         a {
             font-size: 18px;
             color: rgb(var(--color2-rgb));
             text-decoration: none;
 
-            &:hover {
+            &:hover, &.active {
                 text-decoration: underline;
             }
         }
@@ -43,6 +48,7 @@
 </style>
 
 <script>
+	import { page } from "$app/stores";
 	import { onMount } from "svelte";
 
     let countData = { activeCount: 1, allTimeMaxCount: 1 };
@@ -64,12 +70,12 @@
 <div id="svelte-layout">
     <div id="nav">
         <div class="left">
-            <a href="/" data-sveltekit-prefetch>Home</a>
-            <a href="/extensions?type=plugins" data-sveltekit-prefetch>Plugins</a>
-            <a href="/extensions?type=themes" data-sveltekit-prefetch>Themes</a>
+            <a href="/" class:active="{$page.url.href.endsWith("/")}" data-sveltekit-prefetch>Home</a>
+            <a href="/extensions?type=plugins" class:active="{$page.url.href.endsWith("/extensions?type=plugins")}" data-sveltekit-prefetch>Plugins</a>
+            <a href="/extensions?type=themes" class:active="{$page.url.href.endsWith("/extensions?type=themes")}" data-sveltekit-prefetch>Themes</a>
         </div>
         <div class="right">
-            <p>{countData.activeCount} | {countData.allTimeMaxCount}</p>
+            <p class="small">{countData.activeCount} active user, {countData.allTimeMaxCount} all-time max. </p>
             <a href="https://discord.gg/acord">
                 <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
