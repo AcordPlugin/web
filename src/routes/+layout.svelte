@@ -44,6 +44,12 @@
                 text-decoration: underline;
             }
         }
+
+        @media screen and (max-width: 768px){
+            .hideonmobile {
+                display: none;
+            }
+        }
     }
 </style>
 
@@ -75,7 +81,7 @@
             <a href="/extensions?type=themes" class:active="{$page.url.href.endsWith("/extensions?type=themes")}" data-sveltekit-prefetch>Themes</a>
         </div>
         <div class="right">
-            <p class="small">{countData.activeCount} active user, {countData.allTimeMaxCount} all-time max. </p>
+            <p class="small hideonmobile">{countData.activeCount} active user, {countData.allTimeMaxCount} all-time max. </p>
             <a href="https://discord.gg/acord">
                 <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
