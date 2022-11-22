@@ -95,6 +95,11 @@
             }
             
         }
+
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
     }
 
     .modal {
@@ -173,15 +178,20 @@
 </style>
 
 <script>
+	import { getOs } from "$lib/utils.js";
 	import { onMount } from "svelte";
 
     let ohokModalVisible = false;
     let downloadCount = 2;
 
+    let supportedOses = ["Windows", "MacOS"];
+    let os = "";
+
     onMount(async ()=>{
         let fetched = await fetch("https://api.github.com/repos/AcordPlugin/acord-installer-new/releases/80710913");
         let json = await fetched.json();
         downloadCount = json.assets.reduce((all, current)=> all+current.download_count, 0);
+        os = getOs();
     })
 </script>
 
@@ -205,7 +215,7 @@
         <div class="download-count">
             {downloadCount - 1}+ downloads
         </div>
-        <a class="download" href="https://github.com/AcordPlugin/acord-installer-new/releases/tag/v0.1.0">
+        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/acord-installer-new/releases/download/v0.1.0/AcordInstaller-{os}.exe" title="Download for {os}!">
             Download Acord
         </a>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -229,7 +239,7 @@
             There’s no comparison chart,<br> 
             we’re just better.
         </p>
-        <a class="download" href="https://github.com/AcordPlugin/acord-installer-new/releases/tag/v0.1.0">
+        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/acord-installer-new/releases/download/v0.1.0/AcordInstaller-{os}.exe" title="Download for {os}!">
             Download anyway
         </a>
     </div>
