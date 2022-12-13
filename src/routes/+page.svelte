@@ -222,7 +222,7 @@
         <div class="download-count">
             {downloadCount - 1}+ downloads
         </div>
-        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/acord-installer-new/releases/download/v0.1.0/AcordInstaller-{os}.exe" title="Download for {os}!">
+        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/installer/releases/download/v0.1.0/AcordInstaller.{os == "Windows" ? "exe" : "zip"}" title="Download for {os}!">
             Download Acord
         </a>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -246,7 +246,7 @@
             There’s no comparison chart,<br> 
             we’re just better.
         </p>
-        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/acord-installer-new/releases/download/v0.1.0/AcordInstaller-{os}.exe" title="Download for {os}!">
+        <a class="download" class:disabled={!supportedOses.includes(os)} href="https://github.com/AcordPlugin/installer/releases/download/v0.1.0/AcordInstaller.{os == "Windows" ? "exe" : "zip"}" title="Download for {os}!">
             Download anyway
         </a>
     </div>
