@@ -96,10 +96,6 @@
             
         }
 
-        .disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
     }
 
     .modal {
@@ -175,6 +171,11 @@
             }
         }
     }
+
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 </style>
 
 <script>
@@ -184,13 +185,19 @@
     let ohokModalVisible = false;
     let downloadCount = 2;
 
-    let supportedOses = ["Windows", "MacOS"];
+    let supportedOses = ["Windows"];
     let os = "";
 
+    async function fetchJSON(u) {
+        let fetched = await fetch(u);
+        return await fetched.json();
+    }
+
     onMount(async ()=>{
-        let fetched = await fetch("https://api.github.com/repos/AcordPlugin/acord-installer-new/releases/80710913");
-        let json = await fetched.json();
-        downloadCount = json.assets.reduce((all, current)=> all+current.download_count, 0);
+        let json1 = await fetchJSON("https://api.github.com/repos/AcordPlugin/acord-installer-new/releases/80710913");
+        let json2 = await fetchJSON("https://api.github.com/repos/AcordPlugin/installer/releases/85883518");
+        let reducer = (all, current)=> all+current.download_count;
+        downloadCount = json1.assets.reduce(reducer, 0)+json2.assets.reduce(reducer, 0);
         os = getOs();
     })
 </script>
