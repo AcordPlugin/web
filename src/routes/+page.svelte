@@ -213,7 +213,7 @@
 
 <div class="page">
     <div class="top">
-        <img class="logo" src="https://acord.app/api/logo.svg?fg=fafafa" alt="logo">
+        <img class="logo" src="https://api.acord.app/logo.svg?fg=fafafa" alt="logo">
         <h1 class="title">Acord</h1>
         <p class="description">
             Fix Discord’s sloppy jobs and<br>

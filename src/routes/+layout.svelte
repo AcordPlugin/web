@@ -61,7 +61,7 @@
 
     onMount(()=>{
         async function update() {
-            let d = (await (await fetch(`https://acord.app/api/users`)).json());
+            let d = (await (await fetch(`https://api.acord.app/users`)).json());
             countData = d.data;
         }
         let interval = setInterval(update, 10000);
